@@ -32,7 +32,7 @@ class setup($node_version = "v0.10.26") {
   }
 
   # Global npm modules
-  npm { ["nodemon", "grunt", "bower-cli"]:
+  npm { ["nodemon", "grunt-cli", "bower"]:
   }
 
   # Make sure our code directory has proper permissions
@@ -45,7 +45,7 @@ class setup($node_version = "v0.10.26") {
   # Install packages from package.json
   exec { "npm-install-packages":
     cwd => "/home/vagrant/mean",
-    command => "npm install --unsafe-perm 2>&1",
+    command => "npm install",
     require => Exec['install-node'],
   }
 

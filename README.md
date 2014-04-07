@@ -133,7 +133,6 @@ git push heroku master
   - Package managers like apt-get and gem install will install an older version of Vagrant so it is required to use the download page.
 
 ```bash
-git submodule update --init -recursive
 vagrant up
 vagrant ssh
 cd mean

@@ -15,7 +15,7 @@ file { '/etc/motd':
 
 To start server:
 cd mean
-node server
+grunt
 
 Navigate to http://localhost:3000
 ***********************************

@@ -23,6 +23,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Add port-forward for Debugger
   config.vm.network "forwarded_port", guest: 5858, host: 5858
 
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   config.vm.network "private_network", ip: "192.168.33.20"

@@ -135,6 +135,9 @@ git push heroku master
 ```bash
 git submodule update --init -recursive
 vagrant up
+vagrant ssh
+cd mean
+node server
 ```
 
 ## More Information

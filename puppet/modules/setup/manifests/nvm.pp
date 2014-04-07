@@ -1,3 +1,5 @@
+# Taken from https://github.com/mozilla/openbadges/blob/development/.puppet-manifests/nvm.pp
+
 class nvm ($node_version) {
 
   Exec {

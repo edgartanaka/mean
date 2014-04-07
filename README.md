@@ -35,11 +35,11 @@ $ npm install -g bower
   We recommend using [Grunt](https://github.com/gruntjs/grunt-cli) to start the server:
 
     $ grunt
-    
+
   When not using grunt you can use:
 
     $ node server
-    
+
   Then open a browser and go to:
 
     http://localhost:3000
@@ -81,7 +81,7 @@ Bower Clean Cache:
 $ bower cache clean
 ```
 
- 
+
 ## Configuration
 All configuration is specified in the [server/config](server/config/) folder, particularly the [config.js](server/config/config.js) file and the [env](server/config/env/) files. Here you will need to specify your application name, database name, as well as hook up any social app keys if you want integration with Twitter, Facebook, GitHub or Google.
 
@@ -124,6 +124,17 @@ git add .
 git commit -m "initial version"
 heroku apps:create
 git push heroku master
+```
+## Vagrant Virtual Machine Setup
+
+- Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+  - Do not open VirtualBox or create a virtual machine. This will be handled by Vagrant.
+- Download and install [Vagrant](http://www.vagrantup.com/downloads.html)
+  - Package managers like apt-get and gem install will install an older version of Vagrant so it is required to use the download page.
+
+```bash
+git submodule update --init -recursive
+vagrant up
 ```
 
 ## More Information

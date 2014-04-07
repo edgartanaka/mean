@@ -18,11 +18,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = "mean-server"
 
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 80, host: 8080
+  # Add port-forward for Express app
   config.vm.network "forwarded_port", guest: 3000, host: 3000
+  # Add port-forward for Debugger
+  config.vm.network "forwarded_port", guest: 5858, host: 5858
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.

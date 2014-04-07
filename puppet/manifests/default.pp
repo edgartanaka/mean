@@ -13,6 +13,11 @@ file { '/etc/motd':
 - Node:    ${node_version}
 - IP:      192.168.33.20
 
+To start server:
+cd mean
+node server
+
+Navigate to http://localhost:3000
 ***********************************
 \n"
 }

@@ -32,7 +32,7 @@ class setup($node_version = "v0.10.26") {
   }
 
   # Global npm modules
-  npm { ["nodemon"]:
+  npm { ["nodemon", "grunt", "bower-cli"]:
   }
 
   # Make sure our code directory has proper permissions
@@ -44,23 +44,23 @@ class setup($node_version = "v0.10.26") {
 
   # Install packages from package.json
   exec { "npm-install-packages":
-    cwd => "/home/vagrant/hackathon-starter",
+    cwd => "/home/vagrant/mean",
     command => "npm install --unsafe-perm 2>&1",
     require => Exec['install-node'],
   }
 
-  # package { 'mongodb':
-  #   ensure => present,
-  # }
+  package { 'mongodb':
+    ensure => present,
+  }
 
-  # service { 'mongodb':
-  #   ensure  => running,
-  #   require => Package['mongodb'],
-  # }
-  #
-  # exec { 'allow remote mongo connections':
-  #   command => "/usr/bin/sudo sed -i 's/bind_ip = 127.0.0.1/bind_ip = 0.0.0.0/g' /etc/mongodb.conf",
-  #   notify  => Service['mongodb'],
-  #   onlyif  => '/bin/grep -qx  "bind_ip = 127.0.0.1" /etc/mongodb.conf',
-  # }
+  service { 'mongodb':
+    ensure  => running,
+    require => Package['mongodb'],
+  }
+
+  exec { 'allow remote mongo connections':
+    command => "/usr/bin/sudo sed -i 's/bind_ip = 127.0.0.1/bind_ip = 0.0.0.0/g' /etc/mongodb.conf",
+    notify  => Service['mongodb'],
+    onlyif  => '/bin/grep -qx  "bind_ip = 127.0.0.1" /etc/mongodb.conf',
+  }
 }
